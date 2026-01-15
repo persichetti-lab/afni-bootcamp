@@ -42,7 +42,7 @@ body {
 }
 
 /* Directions map styling */
-#directions iframe {
+#register iframe {
   width: 100%;
   max-width: 100%;
   height: 450px;
