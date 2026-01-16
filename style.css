@@ -1,97 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AFNI Bootcamp</title>
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Bootstrap 4 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+/* Body font */
+body {
+  font-family: 'Lora', serif;
+  margin: 0;
+  overflow-x: hidden;
+}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Cabin:700" rel="stylesheet">
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease;
+}
+.navbar.transparent { background-color: transparent; }
+.navbar.scrolled { background-color: rgba(255, 255, 255, 0.95); }
 
-  <!-- Custom CSS -->
-  <link href="style.css" rel="stylesheet">
-</head>
+/* =========================
+   FULL-WIDTH IMAGE SECTIONS
+========================= */
+.full-width-image {
+  width: 100%;
+  margin: 0;
+  padding-top: 80px;
+  overflow: hidden;
+}
+.full-width-image img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-<body>
+/* Poster background color */
+#poster { background-color: #B6FDC9; }
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light transparent fixed-top">
-    <a class="navbar-brand" href="#">AFNI Bootcamp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#poster">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
-        <li class="nav-item"><a class="nav-link" href="#directions">Directions</a></li>
-      </ul>
-    </div>
-  </nav>
+/* General section spacing */
+section { padding-bottom: 40px; }
 
-  <!-- Poster Section -->
-  <section id="poster" class="full-width-image text-center">
-    <img src="images/Afni_Bootcamp_Poster.png" alt="AFNI Bootcamp Poster">
-  </section>
+/* =========================
+   DIRECTIONS SECTION (BACKGROUND IMAGE + OVERLAY TEXT)
+========================= */
+.image-background-section {
+  background-image: url("images/Afni_Directions.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px 50px 20px;
+}
 
-  <!-- Schedule Section -->
-  <section id="schedule" class="full-width-image text-center my-5">
-    <img src="images/Afni_Schedule.png" alt="AFNI Bootcamp Schedule">
-  </section>
+/* Overlay text */
+.overlay-text {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #000; /* solid black */
+  font-size: 1.5rem; /* larger text */
+  background-color: rgba(255, 255, 255, 0.75); /* semi-transparent for readability */
+  padding: 40px 50px;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0 auto 30px auto;
+}
 
-  <!-- Directions Section (Background Image + Overlay Text + Map) -->
-  <section id="directions" class="image-background-section">
-    
-    <!-- Overlay Text -->
-    <div class="overlay-text">
-      <p>
-        The Dorrance H. Hamilton Building is in the heart of Center City and
-        easily accessible by public transit.
-      </p>
+.overlay-text p {
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
 
-      <p>
-        There will be social events planned in the evenings to unwind after
-        the bootcamp. More info to come.
-      </p>
+/* =========================
+   MAP SECTION
+========================= */
+#map {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-      <p>
-        <strong>Please Register HERE</strong><br>
-        Early registration is $125, open until March 1.<br>
-        After that, registration will be $200.
-      </p>
-    </div>
-
-    <!-- Embedded Google Map -->
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2939.240919662881!2d-75.16110522401215!3d39.947601871518856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c6263bccf723%3A0x64f66a0d9a17b411!2sDorrance%20H.%20Hamilton%20Building%2C%20Thomas%20Jefferson%20University!5e1!3m2!1sen!2sus!4v1768504586241!5m2!1sen!2sus" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-3 bg-light">
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Navbar scroll effect -->
-  <script>
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 50) {
-        $('.navbar').addClass('scrolled');
-      } else {
-        $('.navbar').removeClass('scrolled');
-      }
-    });
-  </script>
-
-</body>
-</html>
+#map iframe {
+  width: 100%;
+  height: 80vh; /* taller map */
+  max-height: 800px;
+  border: 0;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
