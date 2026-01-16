@@ -1,84 +1,110 @@
-/* Smooth scrolling */
+/* =========================
+   SMOOTH SCROLLING
+   ========================= */
 html {
   scroll-behavior: smooth;
 }
 
-/* Body font */
+/* =========================
+   BODY STYLING
+   ========================= */
 body {
   font-family: 'Lora', serif;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: hidden; /* prevents horizontal scroll */
 }
 
 /* =========================
    NAVBAR
-========================= */
+   ========================= */
 .navbar {
   background-color: rgba(255, 255, 255, 0.5);
   transition: background-color 0.3s ease;
 }
-.navbar.transparent { background-color: transparent; }
-.navbar.scrolled { background-color: rgba(255, 255, 255, 0.95); }
+
+.navbar.transparent {
+  background-color: transparent;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+}
 
 /* =========================
    FULL-WIDTH IMAGE SECTIONS
-========================= */
+   ========================= */
 .full-width-image {
   width: 100%;
   margin: 0;
-  padding-top: 80px;
+  padding-top: 80px; /* space for fixed navbar */
   overflow: hidden;
 }
+
 .full-width-image img {
   width: 100%;
+  max-height: calc(100vh - 80px); /* fit within viewport */
+  object-fit: contain;            /* maintain aspect ratio */
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Poster background color */
-#poster { background-color: #B6FDC9; }
-
-/* General section spacing */
-section { padding-bottom: 40px; }
+/* =========================
+   POSTER BACKGROUND COLOR
+   ========================= */
+#poster {
+  background-color: #B6FDC9;
+  min-height: 100vh;
+}
 
 /* =========================
-   DIRECTIONS SECTION (BACKGROUND IMAGE + OVERLAY TEXT)
-========================= */
-.image-background-section {
-  background-image: url("images/Afni_Directions.png");
+   DIRECTIONS SECTION (TEXT OVER IMAGE)
+   ========================= */
+#directions {
+  background-image: url('images/Afni_Directions.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 100px 20px 50px 20px;
-}
-
-.overlay-text {
+  height: 100vh;             /* full screen */
+  position: relative;
+  color: white;
   font-family: Arial, sans-serif;
   font-weight: bold;
-  color: #000;
-  background-color: rgba(255, 255, 255, 0.75);
-  padding: 30px 40px;
-  max-width: 800px;
-  text-align: center;
-  border-radius: 8px;
-  margin: 0 auto;
 }
 
-.overlay-text p {
-  margin-bottom: 20px;
-  line-height: 1.5;
+.directions-overlay {
+  background-color: rgba(0,0,0,0.4); /* optional semi-transparent overlay for readability */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#directions .directions-overlay p {
+  margin: 15px 0;
+  font-size: 1.2rem;
 }
 
 /* =========================
    MAP SECTION
-========================= */
+   ========================= */
 #map iframe {
   width: 100%;
-  height: 60vh;
-  max-height: 500px;
+  height: 60vh;       /* responsive height */
+  max-height: 500px;  /* prevents huge maps on large screens */
   border: 0;
   border-radius: 8px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
+}
+
+/* =========================
+   GENERAL SECTION SPACING
+   ========================= */
+section {
+  padding-bottom: 40px;
 }
